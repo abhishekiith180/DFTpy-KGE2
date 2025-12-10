@@ -1,0 +1,188 @@
+DFTpy 2.0.0rc2 Begin on : 2024-03-27 15:35:12
+Serial version on        1 processors
+{
+    "CASIDA": {
+        "diagonalize": true,
+        "numeig": null,
+        "tda": false
+    },
+    "CELL": {
+        "cellfile": "Si.vasp",
+        "elename": [
+            "Si"
+        ],
+        "format": "vasp",
+        "zval": [
+            3.0,
+            5.0
+        ]
+    },
+    "DENSITY": {
+        "densityfile": null,
+        "densityini": "HEG",
+        "densityoutput": "den.Si.TFvW.xsf",
+        "magmom": 0,
+        "nspin": 1
+    },
+    "EXC": {
+        "c_str": null,
+        "libxc": [
+            "lda_x",
+            "lda_c_pz"
+        ],
+        "x_str": null,
+        "xc": "LDA"
+    },
+    "GRID": {
+        "cplx": false,
+        "ecut": 1200,
+        "gfull": false,
+        "maxprime": 13,
+        "nr": null,
+        "scale": 0.99,
+        "spacing": 0.17701933959099606
+    },
+    "INVERSION": {
+        "rho_in": null,
+        "v_out": null
+    },
+    "JOB": {
+        "calctype": [
+            "Energy"
+        ],
+        "task": "Optdensity"
+    },
+    "KEDF": {
+        "alpha": null,
+        "beta": null,
+        "delta": null,
+        "etamax": 50,
+        "interp": "hermite",
+        "k_str": null,
+        "kdd": 3,
+        "kedf": "X_TF_Y_VW",
+        "kerneltype": null,
+        "kfmax": null,
+        "kfmin": null,
+        "ldw": null,
+        "lumpfactor": null,
+        "maxpoints": 1000,
+        "neta": 50000,
+        "nsp": null,
+        "order": 3,
+        "params": null,
+        "ratio": 1.15,
+        "rho0": null,
+        "rhomax": null,
+        "sigma": null,
+        "symmetrization": null,
+        "temperature": null,
+        "temperature0": null,
+        "x": 1,
+        "y": 1,
+        "zeta": 1
+    },
+    "KEDF2": {
+        "active": false,
+        "alpha": null,
+        "beta": null,
+        "delta": null,
+        "etamax": 50,
+        "interp": "hermite",
+        "k_str": null,
+        "kdd": 3,
+        "kedf": "WT",
+        "kerneltype": null,
+        "kfmax": null,
+        "kfmin": null,
+        "ldw": null,
+        "lumpfactor": null,
+        "maxpoints": 1000,
+        "neta": 50000,
+        "nsp": null,
+        "order": 3,
+        "params": null,
+        "ratio": 1.15,
+        "rho0": null,
+        "rhomax": null,
+        "sigma": null,
+        "symmetrization": null,
+        "temperature": null,
+        "temperature0": null,
+        "x": 0,
+        "y": 0,
+        "zeta": 1
+    },
+    "MATH": {
+        "linearie": true,
+        "linearii": true,
+        "multistep": 1,
+        "reuse": true,
+        "twostep": false
+    },
+    "NONADIABATIC": {
+        "cutoff": 0.01,
+        "k": 2,
+        "nonadiabatic": null,
+        "rho_cutoff": 0.001
+    },
+    "NONADIABATIC2": {
+        "active": false,
+        "cutoff": 0.01,
+        "k": 2,
+        "nonadiabatic": null,
+        "rho_cutoff": 0.001
+    },
+    "OPT": {
+        "algorithm": "EMM",
+        "c1": 0.0001,
+        "c2": 0.2,
+        "econv": 1e-06,
+        "h0": 1,
+        "maxfun": 50,
+        "maxiter": 200,
+        "maxls": 10,
+        "method": "CG-HS",
+        "vector": "Orthogonalization",
+        "xtol": 1e-12
+    },
+    "OUTPUT": {
+        "electrostatic_potential": null,
+        "stress": true,
+        "time": true
+    },
+    "PATH": {
+        "cellpath": ".",
+        "pppath": "/home/edft/softwares/DFTPYall/DFTpy_5.1/dftpy/examples/DATA/"
+    },
+    "PP": {
+        "Si": "si.lda.recpot\n= .lda.recpot"
+    },
+    "PROPAGATOR": {
+        "atol": null,
+        "linearsolver": "cg",
+        "maxiter": 100,
+        "order": 20,
+        "propagator": "crank-nicholson",
+        "tol": 1e-10
+    },
+    "TD": {
+        "atol_pc": 1e-10,
+        "correction": false,
+        "direc": 0,
+        "max_pc": 2,
+        "max_runtime": 0,
+        "omega": 0,
+        "outfile": "td_out",
+        "propagate_vector_potential": true,
+        "restart": false,
+        "restart_input": "restart_data.npy",
+        "save_interval": 1000,
+        "strength": 0.001,
+        "timestep": 0.001,
+        "tmax": 1,
+        "tol_pc": 1e-08,
+        "vector_potential": false,
+        "z_split": 0
+    }
+}
