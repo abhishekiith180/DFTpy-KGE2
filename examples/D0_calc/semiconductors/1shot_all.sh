@@ -91,7 +91,7 @@ task = Optdensity
 ;calctype = Both Force Stress
 
 [PATH]
-pppath = ../../DATA/
+pppath = ../../../DATA/
 cellpath = .
 
 [MATH]
@@ -114,13 +114,13 @@ format = vasp
 nr = 30 30 30
 
 [DENSITY]
-densityoutput = den.$m.PGS.lda.xsf
+densityoutput = den.$m.KGE2.lda.xsf
 
 [EXC]
 xc = LDA
 
 [KEDF]
-kedf = GGA_PG
+kedf = KGE2
 params = 1.48 1.0
 
 [OPT]

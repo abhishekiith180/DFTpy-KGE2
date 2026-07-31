@@ -10,9 +10,9 @@ from dftpy.field import DirectField
 from dftpy.time_data import timer
 
 @timer()
-def TRY02(rho: DirectField, calcType: Set[str] = {'E','V'}, params = None, y: float = 1.0, **kwargs) -> FunctionalOutput:
+def KGE2(rho: DirectField, calcType: Set[str] = {'E','V'}, params = None, y: float = 1.0, **kwargs) -> FunctionalOutput:
     '''
-    try02 functional
+    KGE2 functional
     Parameters
     ----------
     rho
@@ -26,7 +26,7 @@ def TRY02(rho: DirectField, calcType: Set[str] = {'E','V'}, params = None, y: fl
 
     '''
     kwargs.pop('functional', None)
-    OutFunctional = GGA(rho, functional='TRY02-VW', calcType=calcType, params=params, **kwargs)
+    OutFunctional = GGA(rho, functional='KGE2-VW', calcType=calcType, params=params, **kwargs)
     OutFunctional += vW(rho, y=y, calcType=calcType, **kwargs)
-    OutFunctional.name = 'TRY02'
+    OutFunctional.name = 'KGE2'
     return OutFunctional

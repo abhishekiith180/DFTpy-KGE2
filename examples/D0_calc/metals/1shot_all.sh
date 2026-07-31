@@ -92,14 +92,14 @@ format = vasp
 nr = 30 30 30
 
 [DENSITY]
-densityoutput = den.$m.PGint.lda.xsf
+densityoutput = den.$m.KGE2.lda.xsf
 
 [EXC]
 xc = LDA
 
 [KEDF]
 ;kedf = x_TF_y_vW
-kedf = GGA_PG_INT
+kedf = KGE2
 ;x=1.0
 ;y=1.0
 ;gap = $EgK
@@ -128,7 +128,7 @@ econv = 1e-6
 EOF
 
 
-dftpy dftpy.ini > dftpy.PGint.lda.out
+dftpy dftpy.ini > dftpy.KGE2.lda.out
 #rm -v !("den.*")
 #done
 cd ../

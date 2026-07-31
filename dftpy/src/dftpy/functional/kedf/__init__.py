@@ -19,7 +19,7 @@ from dftpy.functional.semilocal_xc import LibXC, XCStress
 from dftpy.mpi import sprint
 from dftpy.utils import name2functions
 from dftpy.functional.kedf.lkt import LKT
-from dftpy.functional.kedf.try02 import TRY02
+from dftpy.functional.kedf.kge2 import KGE2
 
 __all__ = ["KEDF", "MIXGGAS", "NLGGA",
     "kedf2mixkedf", "kedf2nlgga",
@@ -30,7 +30,7 @@ KEDFEngines= {
         "TF": TF,
         "VW": vW,
         "LKT": LKT,
-        "TRY02": TRY02,
+        "KGE2": KGE2,
         "GGA": GGA,
         "MGGA": MGGA,
         "WT-NL": WT,

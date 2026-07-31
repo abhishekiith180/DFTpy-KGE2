@@ -47,24 +47,18 @@ def LKTmVW(ss: DirectField, calcType: Set[str], params: List[float], **kwargs) -
     exp_1 = np.exp(-params[0] * ss)
     exp_2 = np.exp(-2.0 * params[0] * ss)
     F = 2.0 * exp_1 / (1.0 + exp_2)     # = 1/(cosh[\mu*s] )
-    #print("This is TRY02")
-    #s2 = ss * ss; s2p1 = 1 + params[0]*s2
-    #F = 1/s2p1
     results = {'F': F}
     if 'V' in calcType:
         dFds2 = - params[0] * (1.0 - exp_2) / (1.0 + exp_2) * F / ss
-        #dFds2 = - 2.0*params[0]/s2p1**(2)   # = 1/s dF/ds
         results.update({'dFds2': dFds2})
     return results
 
 @s_with_tkf0
-def TRY02mVW(ss: DirectField, calcType: Set[str], params: List[float], **kwargs) -> Dict:
+def KGE2mVW(ss: DirectField, calcType: Set[str], params: List[float], **kwargs) -> Dict:
     r'''
     \cite{luo2018simple}
     '''
     s2 = ss * ss; s2p1 = 1 + params[0]*s2
-    #Fa = np.exp(-params[0] * s2)
-    print("Inside TRY02-vW, alpha=",params[0])
     F = 1/s2p1
     results = {'F': F}
     if 'V' in calcType:
@@ -498,8 +492,7 @@ def PBE2M(ss: DirectField, calcType: Set[str], params: List[float], **kwargs) ->
 @s_with_tkf0
 def PG(ss: DirectField, calcType: Set[str], params: List[float], **kwargs) -> Dict:
     s2 = ss * ss; s2p1 = 1 + params[0]*s2
-    #Fa = np.exp(-params[0] * s2)
-    print("Inside try02, alpha=",params[0])
+    Fa = np.exp(-params[0] * s2)
     Fa = 1/s2p1
     F = Fa + 5.0 / 3.0 * params[1] * s2
     results = {'F': F}
@@ -509,6 +502,19 @@ def PG(ss: DirectField, calcType: Set[str], params: List[float], **kwargs) -> Di
         results.update({'dFds2': dFds2})
 
     return results
+
+@s_with_tkf0
+def KGE2(ss: DirectField, calcType: Set[str], params: List[float], **kwargs) -> Dict:
+    s2 = ss * ss; s2p1 = 1 + params[0]*s2
+    Fa = 1/s2p1
+    F = Fa + 5.0 / 3.0 * params[1] * s2
+    results = {'F': F}
+    if "V" in calcType:
+        dFds2 = - 2.0*params[0]/s2p1**(2) + 10.0/3.0 * params[1]
+        results.update({'dFds2': dFds2})
+
+    return results
+
 
 @s_with_tkf0
 def GE2(ss: DirectField, calcType: Set[str], params: List[float], q: DirectField, **kwargs) -> Dict:
@@ -610,7 +616,7 @@ TFVW_dict = {"function": TFVW, "params": [1.0, 1.0]}
 
 GGA_KEDF_list = {
     "LKT-VW": {"function": LKTmVW, "params": [1.3]},
-    "TRY02-VW": {"function": TRY02mVW, "params": [1.48]},
+    "KGE2-VW": {"function": KGE2mVW, "params": [1.48]},
     "LKT": {"function": LKT_legacy, "params": [1.3, 1.0]},  # \cite{luo2018simple}
     "DK": {"function": DK, "params": [0.95, 14.28111, -19.5762, -0.05, 9.99802, 2.96085]},
     # \cite{garcia2007kinetic} (8)
