@@ -70,8 +70,8 @@ task = Optdensity
 ;calctype = Both Force Stress
 
 [PATH]
-pppath = /home/edft/softwares/DFTPYall/DFTpy_5.1/dftpy/examples/DATA/ 
-cellpath = /home/edft/Documents/DFTpy_Calculations/D0_calc_solids/lucian_set/POSCARS/
+pppath = ../../../DATA/ 
+cellpath = ../POSCARS/
 
 [MATH]
 linearie = T
@@ -103,7 +103,7 @@ kedf = KGE2
 ;x=1.0
 ;y=1.0
 ;gap = $EgK
-params = 1.481 1.0     # 
+params = 1.481 1.0      
 ;alpha = 5/6
 ;beta  = 5/6
 ;alpha = $alpha
